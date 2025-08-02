@@ -1,0 +1,253 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #fef7f7, #fdf8f3);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .font-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .container {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-heart {
+            position: absolute;
+            color: #e879b9;
+            pointer-events: none;
+            font-size: 24px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 32px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #be185d;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 8px rgba(190, 24, 93, 0.3);
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px -5px rgba(232, 121, 185, 0.3);
+            border: 1px solid rgba(232, 121, 185, 0.2);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            color: #a855f7;
+            margin-bottom: 1rem;
+        }
+
+        .hero-message {
+            font-size: 1.125rem;
+            color: #374151;
+            line-height: 1.75;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            position: relative;
+            z-index: 10;
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-title {
+            font-size: 3rem;
+            color: #be185d;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem;
+        }
+
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: radial-gradient(circle, rgba(232, 121, 185, 0.3), transparent);
+            box-shadow: 0 8px 25px -5px rgba(55, 65, 81, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(190, 24, 93, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-card:hover .photo-caption {
+            transform: translateY(0);
+        }
+
+        /* Decorative Elements */
+        .decoration {
+            position: fixed;
+            font-size: 3rem;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .decoration.flower{
+            top: 2.5rem;
+            left: 2.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .decoration.heart {
+            top: 5rem;
+            right: 4rem;
+            animation: bounce 2s infinite;
+        }
+
+        .decoration.party {
+            bottom: 4rem;
+            left: 5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .decoration.cake {
+            bottom: 5rem;
+            right: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .gallery-title {
+                font-size: 2.5rem;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
